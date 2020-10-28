@@ -1,8 +1,8 @@
 using AutoMapper;
-using Trivident.Movies.Web.Models;
+using Trivident.Movies.SharedKernel.Models;
 using Entities = Trivident.Movies.ApplicationCore.Entities;
 
-namespace Trivident.Movies.Web
+namespace Trivident.Movies.Infrastructure
 {
     public class MappingProfile : Profile 
     {

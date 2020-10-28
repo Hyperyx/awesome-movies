@@ -1,7 +1,8 @@
 using Trivident.Movies.Web.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using Trivident.Movies.Web.Models;
+using Trivident.Movies.SharedKernel.Models;
+using Trivident.Movies.Web.Services.Interfaces;
 
 namespace Trivident.Movies.Web.Controllers
 {
@@ -9,9 +10,9 @@ namespace Trivident.Movies.Web.Controllers
     [ApiController]
     public class MoviesController : ControllerBase
     {
-        private readonly MovieService _movieService;
+        private readonly IMovieService _movieService;
 
-        public MoviesController(MovieService movieService)
+        public MoviesController(IMovieService movieService)
         {
             _movieService = movieService;
         }

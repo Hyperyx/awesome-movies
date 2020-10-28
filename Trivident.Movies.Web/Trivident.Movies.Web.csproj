@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Trivident.Movies.ApplicationCore\Trivident.Movies.ApplicationCore.csproj" />
+    <ProjectReference Include="..\Trivident.Movies.SharedKernel\Trivident.Movies.SharedKernel.csproj" />
   </ItemGroup>
 
 

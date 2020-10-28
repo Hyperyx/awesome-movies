@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Trivident.Movies.Web.Models;
+using Trivident.Movies.SharedKernel.Models;
 
 namespace Trivident.Movies.Web.Services.Interfaces
 {
@@ -8,6 +8,8 @@ namespace Trivident.Movies.Web.Services.Interfaces
         List<Movie> Get();
 
         Movie Get(string id);
+
+        Movie Create(Movie movie);
 
         void Update(string id, Movie movieIn);
 

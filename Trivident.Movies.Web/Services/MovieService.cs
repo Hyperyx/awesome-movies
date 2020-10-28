@@ -1,4 +1,4 @@
-using Trivident.Movies.Web.Models;
+using Trivident.Movies.SharedKernel.Models;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
