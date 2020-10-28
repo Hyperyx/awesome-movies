@@ -1,8 +1,8 @@
-using Trivident.Movies.SharedKernel.Models;
+using Trivident.Movies.ApplicationCore.Entities;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
-using Trivident.Movies.Web.Configuration.Interfaces;
+using Trivident.Movies.SharedKernel.Configuration.Interfaces;
 using Trivident.Movies.Web.Services.Interfaces;
 
 namespace Trivident.Movies.Web.Services
@@ -30,8 +30,6 @@ namespace Trivident.Movies.Web.Services
         }
 
         public void Update(string id, Movie movieIn) => _movies.ReplaceOne(movie => movie.Id == id, movieIn);
-
-        public void Remove(Movie movieIn) => _movies.DeleteOne(movie => movie.Id == movieIn.Id);
 
         public void Remove(string id) => _movies.DeleteOne(movie => movie.Id == id);
     }

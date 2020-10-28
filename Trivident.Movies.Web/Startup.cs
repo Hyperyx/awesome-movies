@@ -4,8 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
-using Trivident.Movies.Web.Configuration;
-using Trivident.Movies.Web.Configuration.Interfaces;
+using MongoDB.Driver;
+using Trivident.Movies.SharedKernel.Configuration;
+using Trivident.Movies.SharedKernel.Configuration.Interfaces;
 using Trivident.Movies.Web.Services;
 using Trivident.Movies.Web.Services.Interfaces;
 

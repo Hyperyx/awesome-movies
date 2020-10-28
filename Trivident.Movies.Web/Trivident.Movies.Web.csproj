@@ -5,12 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="10.1.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Trivident.Movies.SharedKernel\Trivident.Movies.SharedKernel.csproj" />
+    <ProjectReference Include="..\Trivident.Movies.ApplicationCore\Trivident.Movies.ApplicationCore.csproj" />
   </ItemGroup>
-
-
+  
 </Project>

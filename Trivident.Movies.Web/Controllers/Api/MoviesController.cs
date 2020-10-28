@@ -1,7 +1,6 @@
-using Trivident.Movies.Web.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using Trivident.Movies.SharedKernel.Models;
+using Trivident.Movies.ApplicationCore.Entities;
 using Trivident.Movies.Web.Services.Interfaces;
 
 namespace Trivident.Movies.Web.Controllers

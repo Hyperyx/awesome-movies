@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Trivident.Movies.SharedKernel.Models;
+using Trivident.Movies.ApplicationCore.Entities;
 
 namespace Trivident.Movies.Web.Services.Interfaces
 {
@@ -12,8 +12,6 @@ namespace Trivident.Movies.Web.Services.Interfaces
         Movie Create(Movie movie);
 
         void Update(string id, Movie movieIn);
-
-        void Remove(Movie movieIn);
 
         void Remove(string id);
     }
