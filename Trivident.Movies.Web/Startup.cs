@@ -5,6 +5,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using Trivident.Movies.ApplicationCore.Entities;
+using Trivident.Movies.Infrastructure;
+using Trivident.Movies.Infrastructure.Data;
+using Trivident.Movies.Infrastructure.Data.Interfaces;
 using Trivident.Movies.SharedKernel.Configuration;
 using Trivident.Movies.SharedKernel.Configuration.Interfaces;
 using Trivident.Movies.Web.Services;
@@ -31,8 +35,10 @@ namespace Trivident.Movies.Web
             services.AddSingleton<ITestDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<TestDatabaseSettings>>().Value);
 
-            services.AddTransient<IMovieService, MovieService>();
+            services.AddScoped<IMoviesContext, MoviesContext>();
 
+            services.AddInfrastructureServices();
+            services.AddServices();
             services.AddControllers();
         }
 

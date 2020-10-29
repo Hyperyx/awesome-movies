@@ -7,7 +7,7 @@ using Trivident.Movies.Web.Services.Interfaces;
 
 namespace Trivident.Movies.Web.Services
 {
-    public class MovieService : IMovieService
+    public class MovieService
     {
         private readonly IMongoCollection<Movie> _movies;
 
