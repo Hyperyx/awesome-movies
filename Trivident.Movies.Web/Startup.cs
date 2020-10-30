@@ -4,15 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
-using MongoDB.Driver;
-using Trivident.Movies.ApplicationCore.Entities;
 using Trivident.Movies.Infrastructure;
 using Trivident.Movies.Infrastructure.Data;
 using Trivident.Movies.Infrastructure.Data.Interfaces;
 using Trivident.Movies.SharedKernel.Configuration;
 using Trivident.Movies.SharedKernel.Configuration.Interfaces;
-using Trivident.Movies.Web.Services;
-using Trivident.Movies.Web.Services.Interfaces;
 
 namespace Trivident.Movies.Web
 {
@@ -52,7 +48,7 @@ namespace Trivident.Movies.Web
 
             app.UseHttpsRedirection();
 
-            app.UseStaticFiles();
+            app.UseFileServer();
 
             app.UseRouting();
 
