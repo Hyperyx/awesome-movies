@@ -12,11 +12,13 @@ import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { MovieDetailsComponent } from './movie-details';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MoviesComponent
+    MoviesComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,

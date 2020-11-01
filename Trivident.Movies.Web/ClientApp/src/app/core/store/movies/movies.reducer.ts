@@ -1,4 +1,4 @@
-import { Movie } from '../../../shared';
+import { Movie } from '../../../shared/models';
 import { MoviesActions } from './movies.actions';
 
 export const moviesReducer = (state: Movie[] | undefined, action: MoviesActions.Actions): Movie[] | undefined => {
