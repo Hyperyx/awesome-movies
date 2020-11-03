@@ -29,11 +29,11 @@ namespace Trivident.Movies.Web
         public void ConfigureServices(IServiceCollection services)
         {
             // requires using Microsoft.Extensions.Options
-            services.Configure<TestDatabaseSettings>(
-                Configuration.GetSection(nameof(TestDatabaseSettings)));
+            services.Configure<MovieDatabaseSettings>(
+                Configuration.GetSection(nameof(MovieDatabaseSettings)));
 
-            services.AddSingleton<ITestDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<TestDatabaseSettings>>().Value);
+            services.AddSingleton<IMovieDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<MovieDatabaseSettings>>().Value);
 
             services.AddScoped<IMoviesContext, MoviesContext>();
 

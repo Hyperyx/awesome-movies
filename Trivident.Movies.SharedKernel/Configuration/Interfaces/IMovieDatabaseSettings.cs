@@ -1,6 +1,6 @@
 namespace Trivident.Movies.SharedKernel.Configuration.Interfaces
 {
-    public interface ITestDatabaseSettings
+    public interface IMovieDatabaseSettings
     {
         string MoviesCollectionName { get; set; }
         string ConnectionString { get; set; }

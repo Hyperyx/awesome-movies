@@ -2,7 +2,7 @@ using Trivident.Movies.SharedKernel.Configuration.Interfaces;
 
 namespace Trivident.Movies.SharedKernel.Configuration
 {
-    public class TestDatabaseSettings : ITestDatabaseSettings
+    public class MovieDatabaseSettings : IMovieDatabaseSettings
     {
         public string MoviesCollectionName { get; set; }
         public string ConnectionString { get; set; }

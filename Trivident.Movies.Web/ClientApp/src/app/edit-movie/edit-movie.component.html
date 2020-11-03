@@ -1,0 +1,15 @@
+<!-- Area Chart -->
+<div class="col-xl-12" *ngIf="movieLoading$ | async">
+  <div class="card shadow mb-4">
+    <!-- Card Body -->
+    <div class="card-body">
+      <div>
+        <span>Loading...</span><br><br>
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<edit-movie-form *ngIf="movieSucceeded$ | async" [movie]="movie$ | async"></edit-movie-form>

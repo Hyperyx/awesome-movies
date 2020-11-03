@@ -3,14 +3,26 @@
 
   <!-- Area Chart -->
   <div class="col-xl-12">
+    <div class="alert alert-danger" role="alert" *ngIf="moviesFailed$ | async">Something went wrong.. <i class="far fa-frown"></i></div>
+    <div class="alert alert-success" role="alert" *ngIf="addMovieSucceeded$ | async">Succesfully added a new movie.. <i class="far fa-smile"></i></div>
+    <div class="alert alert-success" role="alert" *ngIf="editMovieSucceeded$ | async">Succesfully changed a movie.. <i class="far fa-smile"></i></div>
+    <div class="alert alert-success" role="alert" *ngIf="removeMovieSucceeded$ | async">Succesfully removed a movie.. <i class="far fa-smile"></i></div>
     <div class="card shadow mb-4">
       <!-- Card Header - Dropdown -->
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <h6 class="m-0 font-weight-bold text-primary">Manage Movies</h6>
+        <div class="as-flex" *ngIf="removeMovieLoading$ | async">
+          <div role="status" class="spinner-border spinner-border-sm text-primary"><span class="sr-only">Loading...</span></div>
+        </div>
       </div>
       <!-- Card Body -->
       <div class="card-body">
-        <div *ngIf="(movies$ | async) === undefined">
+        <div *ngIf="moviesSucceeded$ | async">
+          <button type="submit" class="btn btn-primary" (click)="onAddClick()">
+            <i class="fas fa-fw fa-plus"></i> New Movie
+          </button><br><br>
+        </div>
+        <div *ngIf="moviesLoading$ | async">
           <span>Loading...</span><br><br>
           <div class="spinner-border text-primary" role="status">
             <span class="sr-only">Loading...</span>
@@ -26,14 +38,26 @@
               <th scope="col">Director</th>
               <th scope="col">Actors</th>
               <th scope="col">Year</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let movie of movies" (click)="onMovieClick(movie?.id)">
+            <tr *ngFor="let movie of movies">
               <td>{{ movie?.title }}</td>
               <td>{{ movie?.director }}</td>
               <td>{{ movie?.actors }}</td>
               <td>{{ movie?.year }}</td>
+              <td>
+                <button type="submit" class="as-link adjust-right" (click)="onMovieClick(movie?.id)">
+                  <i class="fas fa-fw fa-search"></i>
+                </button>
+                <button type="submit" class="as-link adjust-right" (click)="onEditClick(movie?.id)">
+                  <i class="fas fa-fw fa-edit"></i>
+                </button>
+                <button type="submit" class="as-link" (click)="onRemoveClick(movie.id)">
+                  <i class="fas fa-fw fa-trash"></i>
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>

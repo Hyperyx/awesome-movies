@@ -1,12 +1,13 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Action } from '@ngrx/store';
-import { Movie } from '../../../shared/models';
 
-export namespace MovieDetailsActions
-{
+import { IServerOperationResultAction, IServerOperationErrorAction, Movie } from '../../../shared';
+
+export namespace MovieDetailsActions {
   export const LOAD = '[MovieDetails] LOAD';
   export const LOAD_COMPLETE = '[MovieDetails] LOAD_COMPLETE';
   export const LOAD_ERROR = '[MovieDetails] LOAD_ERROR';
+  export const LOAD_RESET = '[MovieDetails] LOAD_RESET'
 
   export class Load implements Action {
     public readonly type = LOAD;
@@ -20,7 +21,7 @@ export namespace MovieDetailsActions
     }
   }
 
-  export class LoadComplete implements Action {
+  export class LoadComplete implements Action, IServerOperationResultAction<Movie> {
     public readonly type = LOAD_COMPLETE;
     public readonly payload: { data?: Movie };
 
@@ -31,7 +32,7 @@ export namespace MovieDetailsActions
     }
   }
 
-  export class LoadError implements Action {
+  export class LoadError implements IServerOperationErrorAction {
     public readonly type = LOAD_ERROR;
     public readonly payload: {
       httpError?: HttpErrorResponse;
@@ -44,5 +45,9 @@ export namespace MovieDetailsActions
     }
   }
 
-  export type Actions = Load | LoadComplete | LoadError;
+  export class LoadReset implements Action {
+    public readonly type = LOAD_RESET;
+  }
+
+  export type Actions = Load | LoadComplete | LoadError | LoadReset;
 }

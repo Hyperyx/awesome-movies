@@ -7,7 +7,7 @@ namespace Trivident.Movies.Infrastructure.Data
 {
     public class MoviesContext : IMoviesContext      
     {
-        public MoviesContext(ITestDatabaseSettings settings)
+        public MoviesContext(IMovieDatabaseSettings settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);

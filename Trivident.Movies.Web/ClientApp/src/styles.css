@@ -17,6 +17,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: #ff3d00!important;
 }
 
+.as-flex {
+  display: flex;
+}
+
 .as-link {
   background: none!important;
   border: none;
@@ -27,4 +31,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: #069;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.adjust-right {
+  margin-right: 10px;
 }

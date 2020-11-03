@@ -1,0 +1,88 @@
+<!-- Content Row -->
+<div class="row">
+  <div class="col-md-3">
+    <div class="alert alert-danger" role="alert" *ngIf="editMovieFailed$ | async">Something went wrong.. <i class="far fa-frown"></i></div>
+    <div class="card">
+      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">Edit Movie</h6>
+        <div class="as-flex" *ngIf="editMovieLoading$ | async">
+          <div role="status" class="spinner-border spinner-border-sm text-primary"><span class="sr-only">Loading...</span></div>
+        </div>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="form" #ngForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control col-md-8 {{ ngForm.submitted && form.controls['title']?.invalid ? 'is-invalid' : '' }}"
+              id="title"
+              formControlName="title"
+              autocomplete="off">
+            <div class="invalid-feedback" *ngIf="ngForm.submitted && form.controls['title']?.errors?.required">
+              The field 'Title' for a movie is required.
+            </div>
+            <div class="invalid-feedback" *ngIf="ngForm.submitted && form.controls['title']?.errors?.maxlength">
+              The field 'Title' has a maximum length of 200.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="director">Director</label>
+            <input class="form-control col-md-8 {{ ngForm.submitted && form.controls['director']?.invalid ? 'is-invalid' : '' }}"
+              id="director"
+              formControlName="director"
+              autocomplete="off">
+            <div class="invalid-feedback" *ngIf="ngForm.submitted && form.controls['director']?.errors?.required">
+              The field 'Director' for a movie is required.
+            </div>
+            <div class="invalid-feedback" *ngIf="ngForm.submitted && form.controls['director']?.errors?.maxlength">
+              The field 'Director' has a maximum length of 200.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="actors">Actors</label>
+            <input class="form-control col-md-8 {{ ngForm.submitted && form.controls['actors']?.invalid ? 'is-invalid' : '' }}"
+              id="actors"
+              formControlName="actors"
+              autocomplete="off">
+            <div class="invalid-feedback" *ngIf="ngForm.submitted && form.controls['actors']?.errors?.required">
+              The field 'Actors' for a movie is required.
+            </div>
+            <div class="invalid-feedback" *ngIf="ngForm.submitted && form.controls['actors']?.errors?.maxlength">
+              The field 'Actors' has a maximum length of 200.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="image">Image URL</label>
+            <input class="form-control col-md-8 {{ ngForm.submitted && form.controls['image']?.invalid ? 'is-invalid' : '' }}"
+              id="image"
+              formControlName="image"
+              autocomplete="off">
+            <div class="invalid-feedback" *ngIf="ngForm.submitted && form.controls['image']?.errors?.required">
+              The field 'Image URL' for a movie is required.
+            </div>
+            <div class="invalid-feedback" *ngIf="ngForm.submitted && form.controls['image']?.errors?.maxlength">
+              The field 'Image URL' has a maximum length of 2048.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="year">Year</label>
+            <input class="form-control col-md-8 {{ ngForm.submitted && form.controls['year']?.invalid ? 'is-invalid' : '' }}"
+              id="year"
+              formControlName="year"
+              numer
+              autocomplete="off">
+            <div class="invalid-feedback" *ngIf="ngForm.submitted && form.controls['year']?.errors?.required">
+              The field 'Year' for a movie is required.
+            </div>
+            <div class="invalid-feedback" *ngIf="ngForm.submitted && form.controls['year']?.errors?.maxlength">
+              The field 'Year' has a maximum length of 4.
+            </div>
+            <div class="invalid-feedback" *ngIf="ngForm.submitted && form.controls['year']?.errors?.movieYear">
+              The field 'Year' needs to be between 1910 and this year.
+            </div>
+          </div><br>
+          <button type="button" class="as-link" (click)="goBack()">Go Back</button>
+          <button type="submit" class="btn btn-primary float-right" [disabled]="editMovieLoading$ | async">Save</button>
+        </form>
+    </div>
+  </div>
+</div>

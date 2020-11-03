@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { IAppState, MovieDetailsActions, selectMovieDetails, selectMovies } from '../core/store';
+import { IAppState, MovieDetailsActions, selectMovieDetailsData } from '../core/store';
 import { Movie } from '../shared';
 
 @Component({
@@ -21,7 +21,7 @@ export class MovieDetailsComponent implements OnInit {
   public ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.store.dispatch(new MovieDetailsActions.Load(this.id));
-    this.movieDetails$ = this.store.pipe(select(selectMovieDetails));
+    this.movieDetails$ = this.store.pipe(select(selectMovieDetailsData));
   }
 
   public goBack(): void {
