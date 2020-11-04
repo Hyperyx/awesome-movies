@@ -1,6 +1,11 @@
 # awesome-movies
 Website to manage your awesome movies
 
+## Prerequisites
+* NPM
+* .NET CLI
+* Angular CLI
+
 ## Build Client-Side
 De client-side project kun je zo bouwen: (/awesome-movies/Trivident.Movies.Web/ClientApp)
 1. npm i
