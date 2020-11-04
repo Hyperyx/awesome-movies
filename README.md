@@ -1,18 +1,18 @@
 # awesome-movies
 Website to manage your awesome movies
 
-# Build Client-Side
+## Build Client-Side
 De client-side project kun je zo bouwen: (/awesome-movies/Trivident.Movies.Web/ClientApp)
 1. npm i
 2. ng build
 
-# Build Server-Side
+## Build Server-Side
 Via de dotnet CLI kun je hem zo builden:
 Op het root niveau (/awesome-movies):
 * dotnet restore
 * dotnet build 
 
-# Run App
+## Run App
 In het web project kun je hem starten met:
 * dotnet run
 
